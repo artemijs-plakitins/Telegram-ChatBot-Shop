@@ -24,61 +24,35 @@ router = Router()
 @router.message(CommandStart())
 async def commandStart(message: Message):
     await rq.set_user(message.from_user.id)
-    await message.answer('Commands I undersatnd: /start, /shop, /register')
-
-
-@router.message(F.text=='/shop')
-async def enterShop(message: Message):
-    await message.answer('You entered the Shop',reply_markup=kb.shopOpenKey)
-
-
-# register handlers
-@router.message(F.text=='/register')
-async def showInformation(message: Message, state: FSMContext):
-    await state.set_state(Register.nickname)
-    await message.answer('Enter your nickname: ')
-
-@router.message(Register.nickname)
-async def registerName(message: Message, state: FSMContext):
-    await state.update_data(nickname = message.text)
-    await state.set_state(Register.email)
-    await message.answer('Enter your Email address: ')
-
-@router.message(Register.email)
-async def registerName(message: Message, state: FSMContext):
-    await state.update_data(email = message.text)
-    await state.set_state(Register.phoneNumber)
-    await message.answer('Enter your phone number: ')
-
-@router.message(Register.phoneNumber)
-async def registerPhoneNumber(message: Message, state: FSMContext):
-    await state.update_data(phoneNumber = message.text)
-    data = await state.get_data()
     await message.answer(
-        f'Nickname: {data["nickname"]}\nEmail address: {data["email"]}\nPhone number: {data["phoneNumber"]}')
-    await state.clear()
+        'Hi! Great to have you back at work! Before getting started,'
+        ' please register your workday by sending /startworkday.')
 
 
 # keyboard handlers
 
-@router.message(F.text=='Catalog')
+@router.message(F.text=='/startworkday')
 async def openCatalog(message: Message):
-    await message.answer('Select a category down bellow', reply_markup=kb.shopCatalogKey)
+    await message.answer('Your workday has begun!', reply_markup=kb.workerMenuKeys)
+
+@router.message(F.text=='Deliver today')
+async def openCatalog(message: Message):
+    await message.answer('Select a city', reply_markup=kb.cityKeys)
 
 
 # callback handlers
 
-@router.callback_query(F.data=='call-tShirts')
+@router.callback_query(F.data=='rigaCity')
 async def showTShirts(callback: CallbackQuery):
-    await callback.answer('Category selected')
-    await callback.message.answer('Selected category: T-Shirts')
+    await callback.answer('City selected')
+    await callback.message.answer('Selected City : Riga')
 
-@router.callback_query(F.data=='call-pants')
+@router.callback_query(F.data=='liepajaCity')
 async def showTShirts(callback: CallbackQuery):
     await callback.answer('Category selected')
-    await callback.message.answer('Selected category: Pants')
+    await callback.message.answer('Selected City : Liepaja')
 
-@router.callback_query(F.data=='call-sneakers')
+@router.callback_query(F.data=='daugavpilsCity')
 async def showTShirts(callback: CallbackQuery):
     await callback.answer('Category selected')
-    await callback.message.answer('Selected category: Sneakers')
+    await callback.message.answer('Selected City : Daugavpils')

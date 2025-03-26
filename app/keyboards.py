@@ -2,14 +2,13 @@ from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                             InlineKeyboardMarkup, InlineKeyboardButton)
 
 # open shop (reply)
-shopOpenKey = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='Catalog')],
-    [KeyboardButton(text='Shopping cart')],
-    [KeyboardButton(text='Account')],
-    [KeyboardButton(text='About us')]],resize_keyboard=True, input_field_placeholder='Choose a button...')
+workerMenuKeys = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='Deliver today')],
+    [KeyboardButton(text='Already delivered')],
+    [KeyboardButton(text='Work-Account')]],resize_keyboard=True, input_field_placeholder='Choose a button...')
 
 # open catalog (inline)
-shopCatalogKey = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='T-Shirts',callback_data='call-tShirts')],
-    [InlineKeyboardButton(text='Pants',callback_data='call-pants')],
-    [InlineKeyboardButton(text='Sneakers',callback_data='call-sneakers')]])
+cityKeys = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text='Riga',callback_data='rigaCity')],
+    [InlineKeyboardButton(text='Liepaja',callback_data='liepajaCity')],
+    [InlineKeyboardButton(text='Daugavpils',callback_data='daugavpilsCity')]])
