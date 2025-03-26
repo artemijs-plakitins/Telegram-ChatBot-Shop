@@ -1,3 +1,7 @@
+## About Telegram-ChatBot-Shop
+- This project is made for the purpose of learning how to develop telegram bots. For communication with Telegram API, I use aiogram3 module.
+
+
 ## How to Obtain a Telegram Bot Token
 
 1. Open Telegram and search for **"BotFather"**.
