@@ -1,4 +1,4 @@
-## About Telegram-ChatBot-Shop
+## About Telegram-Bot-Delivery-Assistant
 - This project is made for the purpose of learning how to develop telegram bots. For communication with Telegram API, I use **aiogram3** module.
 
 
