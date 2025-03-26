@@ -1,10 +1,7 @@
 import os
 import asyncio
 
-# dotenv
 from dotenv import load_dotenv
-
-# aiogram
 from aiogram import Bot, Dispatcher
 
 # project

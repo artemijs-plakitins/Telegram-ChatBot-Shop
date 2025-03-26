@@ -1,6 +1,8 @@
+from sqlalchemy import select
+
 from app.database.models import async_session
 from app.database.models import User, Category, Item
-from sqlalchemy import select
+
 
 async def set_user(telegram_id):
     async with async_session() as session:
