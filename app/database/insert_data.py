@@ -1,11 +1,6 @@
-import asyncio
-
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy.orm import sessionmaker
 
 from app.database.models import Category, async_session
-from app.database.models import engine
 
 
 async def insert_shop_categories():
