@@ -21,6 +21,6 @@ async def insert_shop_categories():
                 Category(id=3, category_name="Sneakers")
             ])
             await session.commit()
-            print("Shop categories added!")
+            print("The data has been successfully added!")
         else:
             print("Categories already exist, skipping insertion.")
