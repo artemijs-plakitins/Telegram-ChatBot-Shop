@@ -7,7 +7,7 @@
 
 ## .venv and Modules
 
-- I recommend creating a .venv virtual environment before running the bot to avoid problems with module versions. <br>
+- I recommend creating a **.venv** virtual environment before running the bot to avoid problems with **module versions**. <br>
 - Open terminal and create virtual environment : <br>
 Linux / macOS : ```python3 -m venv .venv```<br>
 Windows : ```python -m venv .venv```<br>
