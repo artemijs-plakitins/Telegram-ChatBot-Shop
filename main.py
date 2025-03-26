@@ -4,7 +4,6 @@ import asyncio
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher
 
-# project
 from app.handlers import router
 from app.database.models import async_main
 from app.database.insert_data import insert_shop_categories
