@@ -23,7 +23,7 @@ Linux / macOS / Windows : ```deactivate```<br>
 
 ## Database
 
-- This project uses a **SQLite3** database. When you start the bot, the database will be **automatically** created and filled with the necessary data. When data is inserted into the database, a notification saying **"The data has been successfully added!"** will appear in your terminal. If you restart the bot, the database will not be created again since it already exists within the project.<br>
+- This project uses a **SQLite** database. When you start the bot, the database will be **automatically** created and filled with the necessary data. When data is inserted into the database, a notification saying **"The data has been successfully added!"** will appear in your terminal. If you restart the bot, the database will not be created again since it already exists within the project.<br>
 
 ## How to run
 
