@@ -25,6 +25,6 @@ Windows : ```.venv\Scripts\activate``` <br>
 2. Add const variables __TOKEN__ and **DB_URL**<br>
 ```TOKEN=...your token...```<br>
 ```DB_URL=...your DB URL...```<br>
-3. Write in terminal:<br>
+3. Open terminal and run :<br>
 Linux / macOS : ```python3 main.py```<br>
 Windows : ```python main.py```
