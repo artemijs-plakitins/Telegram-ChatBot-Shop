@@ -14,6 +14,8 @@ Windows : ```python -m venv .venv```<br>
 - Virtual environment activation : <br>
 Linux / macOS : ```source .venv/bin/activate```<br>
 Windows : ```.venv\Scripts\activate``` <br>
+- Virtual environment deactivation : <br>
+Linux / macOS / Windows : ```deactivate```<br>
 
 ## Database
 
