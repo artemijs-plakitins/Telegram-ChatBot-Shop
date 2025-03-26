@@ -5,6 +5,16 @@
 3. Follow the prompts to name your bot and choose a **unique username**.
 4. Once created, BotFather will provide you with a **token** — this token is required for authentication and interaction with the **Telegram API.**
 
+## .venv and Modules
+
+- I recommend creating a .venv virtual environment before running the bot to avoid problems with module versions. <br>
+- Open terminal and create virtual environment : <br>
+Linux / macOS : ```python3 -m venv .venv```<br>
+Windows : ```.venv\Scripts\activate```<br>
+- Virtual environment activation : <br>
+Linux / macOS : ```source .venv/bin/activate```<br>
+Windows : ```.venv\Scripts\activate``` <br>
+
 ## Database
 
 - This project requires a SQLite database URL. You need to create your own database file and provide the correct URL.<br>
@@ -17,4 +27,4 @@
 ```DB_URL=...your DB URL...```<br>
 3. Write in terminal:<br>
 Linux / macOS : ```python3 main.py```<br>
-Windows : ```python main.py```.
+Windows : ```python main.py```
