@@ -14,9 +14,3 @@ cityKeys = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='Riga',callback_data='rigaCity')],
     [InlineKeyboardButton(text='Liepaja',callback_data='liepajaCity')],
     [InlineKeyboardButton(text='Daugavpils',callback_data='daugavpilsCity')]])
-
-
-cityKeys = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Riga',callback_data='rigaCity')],
-    [InlineKeyboardButton(text='Liepaja',callback_data='liepajaCity')],
-    [InlineKeyboardButton(text='Daugavpils',callback_data='daugavpilsCity')]])
