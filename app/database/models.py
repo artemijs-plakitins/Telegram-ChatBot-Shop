@@ -32,6 +32,7 @@ class Orders(Base):
     postal_code: Mapped[str] = mapped_column(String(7))
     payment_amount: Mapped[int] = mapped_column()
     paid_status: Mapped[str] = mapped_column(String(3))
+    delivery_status: Mapped[int] = mapped_column()
 
 
 
