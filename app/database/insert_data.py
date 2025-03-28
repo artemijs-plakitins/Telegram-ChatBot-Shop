@@ -5,7 +5,7 @@ from app.database.models import Orders, City, async_session
 
 
 
-async def insert_data():
+async def insert_data() -> None:
     async with async_session() as session:
     
         resultOrders = await session.execute(select(Orders))

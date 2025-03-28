@@ -1,7 +1,6 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                             InlineKeyboardMarkup, InlineKeyboardButton)
 
-import app.database.requests
 
 
 workerMenuKeys = ReplyKeyboardMarkup(keyboard=[
