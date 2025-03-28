@@ -11,7 +11,7 @@ router = Router()
 
 # message handlers
 @router.message(CommandStart())
-async def commandStart(message: Message):
+async def commandStart(message: Message) -> None:
     await rq.set_user(message.from_user.id)
     await message.answer(
         'Hi! Great to have you back at work! Before getting started,'
@@ -21,18 +21,18 @@ async def commandStart(message: Message):
 # keyboard handlers
 
 @router.message(F.text=='/startworkday')
-async def registerWorkDay(message: Message):
+async def registerWorkDay(message: Message) -> None:
     await message.answer('Your workday has begun!', reply_markup=kb.workerMenuKeys)
 
 @router.message(F.text=='Deliver today')
-async def openCityKeys(message: Message):
+async def openCityKeys(message: Message) -> None:
     await message.answer('Select a city', reply_markup=kb.cityKeys)
 
 
 # callback handlers
 
 @router.callback_query(F.data.in_(rq.cityList))
-async def showCityOrders(callback: CallbackQuery):
+async def showCityOrders(callback: CallbackQuery) -> None:
     city = callback.data
     await callback.answer(f'{city} selected')
     orders_info = await rq.get_order_by_city(city)
