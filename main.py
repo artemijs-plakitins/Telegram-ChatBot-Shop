@@ -8,7 +8,7 @@ from app.handlers import router
 from app.database.models import async_main
 from app.database.insert_data import insert_data
 
-async def main():
+async def main() -> None:
     await async_main()
     await insert_data()
     load_dotenv()
