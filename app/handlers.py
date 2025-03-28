@@ -7,17 +7,8 @@ from aiogram.fsm.state import State, StatesGroup
 import app.keyboards as kb
 import app.database.requests as rq
 
-# State class
-
-class Register(StatesGroup):
-    nickname = State()
-    email = State()
-    phoneNumber = State()
-
-
 
 router = Router()
-
 
 # message handlers
 @router.message(CommandStart())
@@ -44,8 +35,8 @@ async def openCatalog(message: Message):
 @router.callback_query(F.data=='rigaCity')
 async def showTShirts(callback: CallbackQuery):
     await callback.answer('City selected')
-    orders = await rq.get_order_by_city("Riga")
-    await callback.message.answer(orders)
+    info_Riga_orders = await rq.get_order_by_city("Riga")
+    await callback.message.answer(f'Oder information: {info_Riga_orders}')
 
 @router.callback_query(F.data=='liepajaCity')
 async def showTShirts(callback: CallbackQuery):
