@@ -22,33 +22,25 @@ async def commandStart(message: Message):
 # keyboard handlers
 
 @router.message(F.text=='/startworkday')
-async def openCatalog(message: Message):
+async def registerWorkDay(message: Message):
     await message.answer('Your workday has begun!', reply_markup=kb.workerMenuKeys)
 
 @router.message(F.text=='Deliver today')
-async def openCatalog(message: Message):
+async def openCityKeys(message: Message):
     await message.answer('Select a city', reply_markup=kb.cityKeys)
 
 
 # callback handlers
 
-@router.callback_query(F.data=='rigaCity')
-async def showCityOrders(callback: CallbackQuery):
-    await callback.answer('City selected')
-    info_Riga_orders = await rq.get_order_by_city("Riga")
-    for order_id, address, paid_status in info_Riga_orders:
-        await callback.message.answer(f"Order information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
+cityList = ['Riga','Liepaja','Daugavpils']
 
-@router.callback_query(F.data=='liepajaCity')
+@router.callback_query(F.data.in_(cityList))
 async def showCityOrders(callback: CallbackQuery):
-    await callback.answer('City selected')
-    info_Liepaja_orders = await rq.get_order_by_city("Liepaja")
-    for order_id, address, paid_status in info_Liepaja_orders:
-        await callback.message.answer(f"Order information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
-
-@router.callback_query(F.data=='daugavpilsCity')
-async def showCityOrders(callback: CallbackQuery):
-    await callback.answer('City selected')
-    info_Daugavpils_orders = await rq.get_order_by_city("Daugavpils")
-    for order_id, address, paid_status in info_Daugavpils_orders:
-        await callback.message.answer(f"Order information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
+    city = callback.data
+    await callback.answer(f'{city} selected')
+    orders_info = await rq.get_order_by_city(city)
+    if orders_info:
+        for order_id, address, paid_status in orders_info:
+            await callback.message.answer(f"Order information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
+    else:
+        await callback.message.answer(f"No orders found for {city}.")
