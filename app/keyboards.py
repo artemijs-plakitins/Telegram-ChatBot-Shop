@@ -7,7 +7,8 @@ import app.database.requests
 workerMenuKeys = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Deliver today')],
     [KeyboardButton(text='Already delivered')],
-    [KeyboardButton(text='Work-Account')]],resize_keyboard=True, input_field_placeholder='Choose a button...')
+    [KeyboardButton(text='Work-Account')]],resize_keyboard=True,
+      input_field_placeholder='Choose a button...')
 
 
 cityKeys = InlineKeyboardMarkup(inline_keyboard=[
