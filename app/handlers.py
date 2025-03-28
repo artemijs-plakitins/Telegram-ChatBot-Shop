@@ -36,14 +36,19 @@ async def openCatalog(message: Message):
 async def showTShirts(callback: CallbackQuery):
     await callback.answer('City selected')
     info_Riga_orders = await rq.get_order_by_city("Riga")
-    await callback.message.answer(f'Oder information: {info_Riga_orders}')
+    for order_id, address, paid_status in info_Riga_orders:
+        await callback.message.answer(f"Oder information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
 
 @router.callback_query(F.data=='liepajaCity')
 async def showTShirts(callback: CallbackQuery):
-    await callback.answer('Category selected')
-    await callback.message.answer('Selected City : Liepaja')
+    await callback.answer('City selected')
+    info_Liepaja_orders = await rq.get_order_by_city("Liepaja")
+    for order_id, address, paid_status in info_Liepaja_orders:
+        await callback.message.answer(f"Oder information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
 
 @router.callback_query(F.data=='daugavpilsCity')
 async def showTShirts(callback: CallbackQuery):
-    await callback.answer('Category selected')
-    await callback.message.answer('Selected City : Daugavpils')
+    await callback.answer('City selected')
+    info_Daugavpils_orders = await rq.get_order_by_city("Daugavpils")
+    for order_id, address, paid_status in info_Daugavpils_orders:
+        await callback.message.answer(f"Oder information --> Order ID: {order_id}, Address: {address}, Paid: {paid_status}")
