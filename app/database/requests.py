@@ -17,4 +17,4 @@ async def getCityList():
     async with async_session() as session:
         cityList = await session.execute(
             select(distinct(City.city_name)))
-        return cityList.all()
+        return [row[0] for row in cityList.all()] 

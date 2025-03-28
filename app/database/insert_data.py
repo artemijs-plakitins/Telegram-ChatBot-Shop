@@ -2,6 +2,7 @@
 from sqlalchemy.future import select
 
 from app.database.models import Orders, City, async_session
+import app.database.requests as rq
 
 
 async def insert_data():
