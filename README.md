@@ -23,9 +23,10 @@ Linux / macOS / Windows : ```deactivate```<br>
 
 Requirements :
 1. python 3.x
-2. aiogram
-3. sqlalchemy
-4. aiosqlite
+2. dotenv
+3. aiogram
+4. sqlalchemy
+5. aiosqlite
 
 ## Database
 
