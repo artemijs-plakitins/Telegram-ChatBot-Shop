@@ -17,25 +17,22 @@ class Base(AsyncAttrs, DeclarativeBase):
     pass
 
 class User(Base):
-    __tablename__ = 'users'
+    __tablename__ = 'USERS'
 
     id: Mapped[int] = mapped_column(primary_key=True)
     telegram_id = mapped_column(BigInteger)
 
-class Category(Base):
-    __tablename__ = 'categories'
+class Orders(Base):
+    __tablename__ = 'ORDERS'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    category_name: Mapped[str] = mapped_column(String(25))
+    order_id: Mapped[int] = mapped_column(primary_key=True)
+    city: Mapped[str] = mapped_column(String(20))
+    recipient: Mapped[str] = mapped_column(String(50))
+    address_street: Mapped[str] = mapped_column(String(50))
+    postal_code: Mapped[str] = mapped_column(String(7))
+    payment_amount: Mapped[int] = mapped_column()
+    paid_status: Mapped[str] = mapped_column(String(3))
 
-class Item(Base):
-    __tablename__ = 'items'
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(String(25))
-    description: Mapped[str] = mapped_column(String(80))
-    price: Mapped[int] = mapped_column()
-    category: Mapped[int] = mapped_column(ForeignKey('categories.id'))
 
 
 async def async_main():

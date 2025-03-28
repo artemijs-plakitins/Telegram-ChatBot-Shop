@@ -44,7 +44,8 @@ async def openCatalog(message: Message):
 @router.callback_query(F.data=='rigaCity')
 async def showTShirts(callback: CallbackQuery):
     await callback.answer('City selected')
-    await callback.message.answer('Selected City : Riga')
+    orders = await rq.get_order_by_city("Riga")
+    await callback.message.answer(orders)
 
 @router.callback_query(F.data=='liepajaCity')
 async def showTShirts(callback: CallbackQuery):
