@@ -16,12 +16,6 @@ async_session = async_sessionmaker(engine, expire_on_commit=False)
 class Base(AsyncAttrs, DeclarativeBase):
     pass
 
-class User(Base):
-    __tablename__ = 'USERS'
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    telegram_id = mapped_column(BigInteger)
-
 class Orders(Base):
     __tablename__ = 'ORDERS'
 
@@ -34,6 +28,11 @@ class Orders(Base):
     paid_status: Mapped[str] = mapped_column(String(3))
     delivery_status: Mapped[int] = mapped_column()
 
+class City(Base):
+    __tablename__ = 'CITY'
+
+    city_id: Mapped[int] = mapped_column(primary_key=True)
+    city_name: Mapped[str] = mapped_column(String(20))
 
 
 async def async_main():

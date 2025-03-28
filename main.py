@@ -6,11 +6,11 @@ from aiogram import Bot, Dispatcher
 
 from app.handlers import router
 from app.database.models import async_main
-from app.database.insert_data import insert_orders
+from app.database.insert_data import insert_data
 
 async def main():
     await async_main()
-    await insert_orders()
+    await insert_data()
     load_dotenv()
     bot = Bot(token=os.getenv('TOKEN'))
     dp = Dispatcher()

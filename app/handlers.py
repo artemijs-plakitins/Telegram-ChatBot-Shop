@@ -1,7 +1,6 @@
 from aiogram import F, Router
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart
-from aiogram.fsm.state import State, StatesGroup
 
 
 import app.keyboards as kb
@@ -32,9 +31,7 @@ async def openCityKeys(message: Message):
 
 # callback handlers
 
-cityList = ['Riga','Liepaja','Daugavpils']
-
-@router.callback_query(F.data.in_(cityList))
+@router.callback_query(F.data.in_(rq.cityList))
 async def showCityOrders(callback: CallbackQuery):
     city = callback.data
     await callback.answer(f'{city} selected')
