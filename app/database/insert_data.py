@@ -27,7 +27,7 @@ async def insert_data() -> None:
                 Orders(order_id=11, city="Daugavpils",recipient="Dmitry",address_street="Brivibas street",postal_code="PO-4509",payment_amount=20,paid_status="Yes",delivery_status=0),
             ])
             await session.commit()
-            print("The data has been successfully added!")
+            print("The data into ORDERS has been successfully added!")
         else:
             print("Data already exist, skipping insertion.")
         
@@ -38,6 +38,6 @@ async def insert_data() -> None:
                 City(city_id=3, city_name="Daugavpils")
             ])
             await session.commit()
-            print("The data has been successfully added!")
+            print("The data into CITY has been successfully added!")
         else:
             print("Data already exist, skipping insertion.")
