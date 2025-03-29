@@ -9,7 +9,7 @@ import app.database.requests as rq
 
 router = Router()
 
-# message handlers
+
 @router.message(CommandStart())
 async def commandStart(message: Message) -> None:
     await rq.set_user(message.from_user.id)
@@ -18,7 +18,6 @@ async def commandStart(message: Message) -> None:
         ' please register your workday by sending /startworkday.')
 
 
-# keyboard handlers
 
 @router.message(F.text=='/startworkday')
 async def registerWorkDay(message: Message) -> None:
@@ -29,7 +28,6 @@ async def openCityKeys(message: Message) -> None:
     await message.answer('Select a city', reply_markup=kb.cityKeys)
 
 
-# callback handlers
 
 @router.callback_query(F.data.in_(rq.cityList))
 async def showCityOrders(callback: CallbackQuery) -> None:
