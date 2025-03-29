@@ -11,6 +11,6 @@ workerMenuKeys = ReplyKeyboardMarkup(keyboard=[
 
 
 cityKeys = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='Riga',callback_data='Riga')],
-    [InlineKeyboardButton(text='Liepaja',callback_data='Liepaja')],
+    [InlineKeyboardButton(text='Rīga',callback_data='Riga')],
+    [InlineKeyboardButton(text='Liepāja',callback_data='Liepaja')],
     [InlineKeyboardButton(text='Daugavpils',callback_data='Daugavpils')]])
