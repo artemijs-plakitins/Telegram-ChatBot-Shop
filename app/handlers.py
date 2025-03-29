@@ -41,13 +41,14 @@ async def showCityOrders(callback: CallbackQuery) -> None:
 
     if orders_info:
         orderSelectionKeyboard = InlineKeyboardMarkup(inline_keyboard=[])
-        
+
         for order_id, address, paid_status in orders_info:
             orderSelectionKeyboard_button = InlineKeyboardButton (
                 text=f"Order ID: {order_id} | {address} | Paid: {paid_status}",
                 callback_data=f"order_{order_id}"
             )
             orderSelectionKeyboard.inline_keyboard.append([orderSelectionKeyboard_button])
-            await callback.message.edit_text(f"Select an order in {city}:", reply_markup=orderSelectionKeyboard)
+            await callback.message.edit_text(
+                f"Select an order in {city}:", reply_markup=orderSelectionKeyboard)
     else:
         await callback.message.edit_text(f"No orders found for {city}.")
