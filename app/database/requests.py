@@ -1,8 +1,8 @@
 from typing import List, Tuple
-from sqlalchemy import select, distinct
+from sqlalchemy import select
 
 from app.database.models import async_session
-from app.database.models import Orders, City
+from app.database.models import Orders
 
 
 cityList = ['Riga', 'Liepaja', 'Daugavpils']
