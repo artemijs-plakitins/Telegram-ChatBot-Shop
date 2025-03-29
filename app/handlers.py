@@ -44,7 +44,7 @@ async def showCityOrders(callback: CallbackQuery) -> None:
 
         for order_id, address, paid_status in orders_info:
             orderSelectionKeyboard_button = InlineKeyboardButton (
-                text=f"Order ID: {order_id} | {address} | Paid: {paid_status}",
+                text=f"Order information --> ID: {order_id} | {address} | Paid: {paid_status}",
                 callback_data=f"order_{order_id}"
             )
             orderSelectionKeyboard.inline_keyboard.append([orderSelectionKeyboard_button])
