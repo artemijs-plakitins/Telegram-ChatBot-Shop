@@ -14,9 +14,3 @@ async def get_order_by_city(city: str) -> List[Tuple[int, str, int]]:
             select(Orders.order_id, Orders.address_street, Orders.paid_status)
             .where(Orders.city == city and Orders.delivery_status == 0))
         return orders_address.all()
-    
-async def getCityList() -> List[str]:
-    async with async_session() as session:
-        cityList = await session.execute(
-            select(distinct(City.city_name)))
-        return [row[0] for row in cityList.all()] 
