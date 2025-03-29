@@ -1,5 +1,3 @@
-import app.database.requests as rq
-
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton,
                             InlineKeyboardMarkup, InlineKeyboardButton)
 

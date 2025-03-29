@@ -1,7 +1,7 @@
 
 from sqlalchemy.future import select
 
-from app.database.models import Orders, City, async_session
+from app.database.models import Orders, async_session
 
 
 
@@ -9,9 +9,7 @@ async def insert_data() -> None:
     async with async_session() as session:
     
         resultOrders = await session.execute(select(Orders))
-        resultCity = await session.execute(select(City))
         in_baseOrders = resultOrders.scalars().all()
-        in_baseCity = resultCity.scalars().all()
 
         if not in_baseOrders:
             session.add_all([
@@ -28,16 +26,5 @@ async def insert_data() -> None:
             ])
             await session.commit()
             print("The data into ORDERS has been successfully added!")
-        else:
-            print("Data already exist, skipping insertion.")
-        
-        if not in_baseCity:
-            session.add_all([
-                City(city_id=1, city_name="Riga"),
-                City(city_id=2, city_name="Liepaja"),
-                City(city_id=3, city_name="Daugavpils")
-            ])
-            await session.commit()
-            print("The data into CITY has been successfully added!")
         else:
             print("Data already exist, skipping insertion.")

@@ -1,12 +1,11 @@
 import os
+from dotenv import load_dotenv
 
-
-from sqlalchemy import BigInteger, String, ForeignKey
+from sqlalchemy import String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
 
-from dotenv import load_dotenv
 
 load_dotenv()
 engine = create_async_engine(url=os.getenv('DB_URL'))
@@ -28,11 +27,6 @@ class Orders(Base):
     paid_status: Mapped[str] = mapped_column(String(3))
     delivery_status: Mapped[int] = mapped_column()
 
-class City(Base):
-    __tablename__ = 'CITY'
-
-    city_id: Mapped[int] = mapped_column(primary_key=True)
-    city_name: Mapped[str] = mapped_column(String(20))
 
 
 async def async_main() -> None:
