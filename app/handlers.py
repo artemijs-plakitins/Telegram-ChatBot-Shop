@@ -14,7 +14,6 @@ router = Router()
 
 @router.message(CommandStart())
 async def commandStart(message: Message) -> None:
-    await rq.set_user(message.from_user.id)
     await message.answer(
         'Hi! Great to have you back at work! Before getting started,'
         ' please register your workday by sending /startworkday.')
