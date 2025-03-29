@@ -11,7 +11,8 @@ cityList = ['Riga', 'Liepaja', 'Daugavpils']
 async def get_order_by_city(city: str) -> List[Tuple[int, str, int]]:
     async with async_session() as session:
         orders_address = await session.execute(
-            select(Orders.order_id, Orders.address_street, Orders.paid_status).where(Orders.city == city and Orders.delivery_status == 0))
+            select(Orders.order_id, Orders.address_street, Orders.paid_status)
+            .where(Orders.city == city and Orders.delivery_status == 0))
         return orders_address.all()
     
 async def getCityList() -> List[str]:
